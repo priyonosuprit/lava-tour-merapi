@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LavaTour Merapi</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>LavaTour Merapi</h1>
+    </header>
+
+    <section class="paket-section">
+        <h2>Pilihan Paket</h2>
+        <div class="paket-container">
+            <div class="paket-card" data-paket="Short" data-harga="Rp 400.000">
+                <img src="https://images.unsplash.com/photo-1611159013944-2b9e5fc3e0f1?auto=format&fit=crop&w=400&q=60" alt="Jip Short Tour" class="thumbnail">
+                <h3>Short</h3>
+                <p>Rute: Museum Mini, Sisa Hartaku, Batu Alien, Trek Air</p>
+                <p>Harga: Rp 400.000</p>
+                <button class="btn-book">Booking</button>
+            </div>
+
+            <div class="paket-card" data-paket="Medium" data-harga="Rp 500.000">
+                <img src="https://images.unsplash.com/photo-1606851090940-3bfe5c7c76d0?auto=format&fit=crop&w=400&q=60" alt="Jip Medium Tour" class="thumbnail">
+                <h3>Medium</h3>
+                <p>Rute: Bunker Kaliadem, Batu Alien, Museum Mini, Trek Air</p>
+                <p>Harga: Rp 500.000</p>
+                <button class="btn-book">Booking</button>
+            </div>
+
+            <div class="paket-card" data-paket="Long" data-harga="Rp 600.000">
+                <img src="https://images.unsplash.com/photo-1592878846076-805ffbc17704?auto=format&fit=crop&w=400&q=60" alt="Jip Long Tour" class="thumbnail">
+                <h3>Long</h3>
+                <p>Rute: Petilasan Mbah Marijan, Bunker Kaliadem, Batu Alien, Museum Mini</p>
+                <p>Harga: Rp 600.000</p>
+                <button class="btn-book">Booking</button>
+            </div>
+        </div>
+    </section>
+    <section class="lokasi-section">
+    <h2>Lokasi LavaTour Merapi</h2>
+    <div class="map-container">
+        <iframe 
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3952.2583366111657!2d110.44074807517412!3d-7.559456593808639!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a5998e1c4f62f%3A0x5c1d5a5d487de2e3!2sMerapi!5e0!3m2!1sid!2sid!4v1693640040000!5m2!1sid!2sid" 
+            width="100%" 
+            height="400" 
+            style="border:0;" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+    </div>
+</section>
+    <!-- Popup Booking Form -->
+    <div class="popup-form" id="popupForm">
+        <div class="form-container">
+            <span class="close-btn" id="closePopup">&times;</span>
+            <form class="booking-form">
+                <label>Nama </label>
+                <input type="text" name="nama" placeholder="Nama Lengkap" required>
+
+                <label>Nomor HP</label>
+                <input type="tel" name="hp" placeholder="Nomor HP" required>
+
+                <label>Paket</label>
+                <input type="text" name="paket" id="form-paket" readonly>
+
+                <label>Harga</label>
+                <input type="text" name="harga" id="form-harga" readonly>
+
+                <label>Jumlah Orang</label>
+                <input type="number" name="jumlahOrang" id="jumlahOrang" min="1" required>
+
+                <label>Jumlah Jeep (otomatis dihitung)</label>
+                <input type="number" name="jumlahJeep" id="jumlahJeep" readonly>
+                <p style="font-size: 0.9rem; color: #ff5722; margin-top: -5px;">
+                    *Satu Jeep maksimal berisi 4 orang
+                </p>
+
+                <label>Catatan / Keterangan</label>
+                <textarea name="catatan" placeholder="Catatan / Keterangan" rows="3"></textarea>
+
+                <label>Metode Pembayaran</label>
+                <select name="metode" required>
+                    <option value="">Pilih Metode Pembayaran</option>
+                    <option value="Transfer Bank BRI (307501020172534 a.n Priyono)">Transfer Bank BRI (307501020172534 a.n Priyono)</option>
+                    <option value="COD / Bayar di Tempat">COD / Bayar di Tempat</option>
+                    <option value="DANA (a.n Priyono 081327525324)">DANA (a.n Priyono 081327525324)</option>
+                </select>
+
+                <button type="submit" class="btn">Booking via WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
