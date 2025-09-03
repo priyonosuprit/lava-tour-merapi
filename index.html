@@ -1,101 +1,125 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>LavaTour Merapi</title>
-    <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LavaTour Merapi</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
+    body { line-height:1.6; background:#f5f5f5; }
+
+    /* Header Slideshow */
+    .header {
+        height:400px;
+        position:relative;
+        overflow:hidden;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        color:white;
+        text-shadow:2px 2px 4px rgba(0,0,0,0.7);
+    }
+
+    .slide {
+        position:absolute;
+        width:100%;
+        height:100%;
+        background-size:cover;
+        background-position:center;
+        opacity:0;
+        transition:opacity 1s ease-in-out;
+    }
+
+    .slide.active { opacity:1; }
+
+    .header h1 {
+        position:relative;
+        z-index:2;
+        font-size:3rem;
+        text-align:center;
+    }
+
+    /* Paket Tour */
+    .paket-container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:40px 20px; background:#fff; }
+    .paket { background:#fafafa; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); width:300px; overflow:hidden; transition:transform 0.3s; cursor:pointer; }
+    .paket img { width:100%; height:200px; object-fit:cover; }
+    .paket h3 { padding:15px; font-size:1.5rem; }
+    .paket p { padding:0 15px 15px 15px; }
+    .paket:hover { transform:scale(1.05); }
+
+    /* Footer / Lokasi */
+    .map-container { margin-top:50px; text-align:center; padding:40px 20px; background:#333; color:#fff; }
+    .map-container h2 { margin-bottom:20px; }
+    .map-container iframe { width:100%; max-width:800px; height:450px; border:0; }
+
+    /* Tombol WA */
+    .wa-button { display:inline-block; margin-top:20px; padding:12px 25px; background:#25D366; color:white; font-weight:bold; border-radius:8px; text-decoration:none; transition:0.3s; }
+    .wa-button:hover { background:#128C7E; }
+
+    /* Responsif */
+    @media(max-width:768px){ .paket-container{ flex-direction:column; align-items:center; } }
+</style>
 </head>
 <body>
-    <header
-        <h1>LavaTour Merapi</h1>
-    </header>
 
-    <section class="paket-section">
-        <h2>Pilihan Paket</h2>
-        <div class="paket-container">
-            <div class="paket-card" data-paket="Short" data-harga="Rp 400.000">
-                <img src="https://images.unsplash.com/photo-1611159013944-2b9e5fc3e0f1?auto=format&fit=crop&w=400&q=60" alt="Jip Short Tour" class="thumbnail">
-                <h3>Short</h3>
-                <p>Rute: Museum Mini, Sisa Hartaku, Batu Alien, Trek Air</p>
-                <p>Harga: Rp 400.000</p>
-                <button class="btn-book">Booking</button>
-            </div>
-
-            <div class="paket-card" data-paket="Medium" data-harga="Rp 500.000">
-                <img src="https://images.unsplash.com/photo-1606851090940-3bfe5c7c76d0?auto=format&fit=crop&w=400&q=60" alt="Jip Medium Tour" class="thumbnail">
-                <h3>Medium</h3>
-                <p>Rute: Bunker Kaliadem, Batu Alien, Museum Mini, Trek Air</p>
-                <p>Harga: Rp 500.000</p>
-                <button class="btn-book">Booking</button>
-            </div>
-
-            <div class="paket-card" data-paket="Long" data-harga="Rp 600.000">
-                <img src="https://images.unsplash.com/photo-1592878846076-805ffbc17704?auto=format&fit=crop&w=400&q=60" alt="Jip Long Tour" class="thumbnail">
-                <h3>Long</h3>
-                <p>Rute: Petilasan Mbah Marijan, Bunker Kaliadem, Batu Alien, Museum Mini</p>
-                <p>Harga: Rp 600.000</p>
-                <button class="btn-book">Booking</button>
-            </div>
-        </div><!-- Bagian Footer / Lokasi -->
-<div class="map-container" style="margin-top: 50px; text-align:center;">
-    <h2>Lokasi LavaTour Merapi</h2>
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.123456789012!2d110.441234567890!3d-7.540123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x123456789abcdef!2sLavaTour%20Merapi!5e0!3m2!1sen!2sid!4v1690000000000!5m2!1sen!2sid" 
-        width="600" 
-        height="450" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
+<!-- Header Slideshow -->
+<div class="header">
+    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1616357456995-7f2c2f0a91d3?auto=format&fit=crop&w=1350&q=80');"></div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1603464563937-2ec609df9db4?auto=format&fit=crop&w=1350&q=80');"></div>
+    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1588666309993-48b9d2dc1681?auto=format&fit=crop&w=1350&q=80');"></div>
+    <h1>Welcome to LavaTour Merapi</h1>
 </div>
-</section>
-    <!-- Popup Booking Form -->
-    <div class="popup-form" id="popupForm">
-        <div class="form-container">
-            <span class="close-btn" id="closePopup">&times;</span>
-            <form class="booking-form">
-                <label>Nama </label>
-                <input type="text" name="nama" placeholder="Nama Lengkap" required>
 
-                <label>Nomor HP</label>
-                <input type="tel" name="hp" placeholder="Nomor HP" required>
-
-                <label>Paket</label>
-                <input type="text" name="paket" id="form-paket" readonly>
-
-                <label>Harga</label>
-                <input type="text" name="harga" id="form-harga" readonly>
-
-                <label>Jumlah Orang</label>
-                <input type="number" name="jumlahOrang" id="jumlahOrang" min="1" required>
-
-                <label>Jumlah Jeep (otomatis dihitung)</label>
-                <input type="number" name="jumlahJeep" id="jumlahJeep" readonly>
-                <p style="font-size: 0.9rem; color: #ff5722; margin-top: -5px;">
-                    *Satu Jeep maksimal berisi 4 orang
-                </p>
-
-                <label>Catatan / Keterangan</label>
-                <textarea name="catatan" placeholder="Catatan / Keterangan" rows="3"></textarea>
-
-                <label>Metode Pembayaran</label>
-                <select name="metode" required>
-                    <option value="">Pilih Metode Pembayaran</option>
-                    <option value="Transfer Bank BRI (307501020172534 a.n Priyono)">Transfer Bank BRI (307501020172534 a.n Priyono)</option>
-                    <option value="COD / Bayar di Tempat">COD / Bayar di Tempat</option>
-                    <option value="DANA (a.n Priyono 081327525324)">DANA (a.n Priyono 081327525324)</option>
-                </select>
-
-                <button type="submit" class="btn">Booking via WhatsApp</button>
-            </form>
-        </div>
+<!-- Paket Tour -->
+<section class="paket-container">
+    <div class="paket" data-paket="Short Tour" data-harga="400K">
+        <img src="https://images.unsplash.com/photo-1603464563937-2ec609df9db4?auto=format&fit=crop&w=800&q=80" alt="Short Tour">
+        <h3>Short Tour - 400K</h3>
+        <p>Rute: Museum Mini Sisa Hartaku, Batu Alien, Trek Air.</p>
     </div>
+    <div class="paket" data-paket="Medium Tour" data-harga="500K">
+        <img src="https://images.unsplash.com/photo-1588666309993-48b9d2dc1681?auto=format&fit=crop&w=800&q=80" alt="Medium Tour">
+        <h3>Medium Tour - 500K</h3>
+        <p>Rute: Bunker Kaliadem, Batu Alien, Museum Mini Sisa Hartaku, Trek Air.</p>
+    </div>
+    <div class="paket" data-paket="Long Tour" data-harga="600K">
+        <img src="https://images.unsplash.com/photo-1594633310907-fb1d7f739efc?auto=format&fit=crop&w=800&q=80" alt="Long Tour">
+        <h3>Long Tour - 600K</h3>
+        <p>Rute: Petilasan Mbah Marijan, Bunker Kaliadem, Batu Alien, Museum Mini Sisa Hartaku.</p>
+    </div>
+</section>
 
-    <script src="script.js"></script>
+<!-- Footer / Lokasi -->
+<div class="map-container">
+    <h2>Lokasi LavaTour Merapi</h2>
+    <iframe src="https://www.google.com/maps?q=adqDjUUNXxfhaSDf7&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <br>
+    <a class="wa-button" href="https://wa.me/6281327525324" target="_blank">Booking via WhatsApp</a>
+</div>
+
+<script>
+    // Slideshow header
+    let slides = document.querySelectorAll('.slide');
+    let current = 0;
+    setInterval(() => {
+        slides[current].classList.remove('active');
+        current = (current+1)%slides.length;
+        slides[current].classList.add('active');
+    }, 4000); // ganti tiap 4 detik
+
+    // Paket klik WA
+    const nomorWA = "6281327525324";
+    const paketEls = document.querySelectorAll('.paket');
+    paketEls.forEach(paket => {
+        paket.addEventListener('click', () => {
+            const nama = paket.getAttribute('data-paket');
+            const harga = paket.getAttribute('data-harga');
+            const pesan = `Halo, saya ingin booking ${nama} dengan harga ${harga}`;
+            const linkWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+            window.open(linkWA, '_blank');
+        });
+    });
+</script>
+
 </body>
-
 </html>
-
-
