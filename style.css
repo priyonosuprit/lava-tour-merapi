@@ -1,137 +1,157 @@
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-  background: #f5f5f5;
+/* Reset CSS dasar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-header {.header {
-    background-image: url('https://images.unsplash.com/photo-1616357456995-7f2c2f0a91d3?auto=format&fit=crop&w=1350&q=80');
-    background-size: cover;
-    background-position: center;
-    height: 400px; /* sesuaikan tinggi header */
+body {
+    line-height: 1.6;
+    background-color: #f5f5f5;
+}
+
+/* Header Slideshow */
+.header {
+    height: 400px;
+    position: relative;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
 }
 
-.paket-section {
-  padding: 1rem;
+.slide.active {
+    opacity: 1;
 }
 
+.header h1 {
+    position: relative;
+    z-index: 2;
+    font-size: 3rem;
+    text-align: center;
+}
+
+/* Dots / indikator slideshow */
+.dots-container {
+    position: absolute;
+    bottom: 20px;
+    width: 100%;
+    text-align: center;
+    z-index: 3;
+}
+
+.dot {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin: 0 5px;
+    background-color: rgba(255,255,255,0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.dot.active {
+    background-color: #fff;
+}
+
+/* Paket Tour */
 .paket-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 40px 20px;
+    background-color: #fff;
 }
 
-.paket-card {
-  background: #fff;
-  padding: 1rem;
-  border-radius: 10px;
-  width: 250px;
-  text-align: center;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  transition: transform 0.3s, box-shadow 0.3s;
+.paket {
+    background-color: #fafafa;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    width: 300px;
+    overflow: hidden;
+    transition: transform 0.3s;
+    cursor: pointer;
 }
 
-.paket-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+.paket img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
 }
 
-.paket-card .thumbnail {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  margin-bottom: 10px;
+.paket h3 {
+    padding: 15px;
+    font-size: 1.5rem;
 }
 
-.btn-book {
-  background: #ff5722;
-  color: #fff;
-  border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 5px;
-  cursor: pointer;
+.paket p {
+    padding: 0 15px 15px 15px;
 }
 
-.btn-book:hover {
-  background: #e64a19;
+.paket:hover {
+    transform: scale(1.05);
 }
 
-/* Popup Form */
-.popup-form {
-  display: none;
-  position: fixed;
-  top:0; left:0; width:100%; height:100%;
-  background: rgba(0,0,0,0.5);
-  justify-content: center;
-  align-items: center;
-}
-
-.form-container {
-  background: #fff;
-  padding: 2rem;
-  border-radius: 10px;
-  width: 90%;
-  max-width: 400px;
-  position: relative;
-}
-
-.close-btn {
-  position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 1.5rem;
-  cursor: pointer;
-}
-
-.booking-form label {
-  display: block;
-  margin-top: 10px;
-}
-
-.booking-form input,
-.booking-form textarea,
-.booking-form select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
-  border-radius: 5px;
-  border: 1px solid #ccc;
-}
-
-.booking-form .btn {
-  margin-top: 15px;
-  width: 100%;
-  padding: 10px;
-  background: #ff5722;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.booking-form .btn:hover {
-background: #e64a19;
-}
-
-.lokasi-section {
-  padding: 1rem;
-  text-align: center;
-}
-
+/* Footer / Lokasi */
 .map-container {
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  border-radius: 10px;
-  overflow: hidden;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    margin-top: 50px;
+    text-align: center;
+    padding: 40px 20px;
+    background-color: #333;
+    color: #fff;
+}
+
+.map-container h2 {
+    margin-bottom: 20px;
+}
+
+.map-container iframe {
+    width: 100%;
+    max-width: 800px;
+    height: 450px;
+    border: 0;
+}
+
+/* Tombol WA */
+.wa-button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background-color: #25D366;
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.wa-button:hover {
+    background-color: #128C7E;
+}
+
+/* Responsif */
+@media(max-width:768px) {
+    .paket-container {
+        flex-direction: column;
+        align-items: center;
+    }
+    .header h1 {
+        font-size: 2rem;
+        padding: 0 10px;
+    }
 }
