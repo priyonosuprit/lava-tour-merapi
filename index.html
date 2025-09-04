@@ -1,126 +1,183 @@
 <!DOCTYPE html>
 <html lang="id">
-<head><link rel="stylesheet" href="style.css">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LavaTour Merapi</title>
-<style>
-    * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; }
-    body { line-height:1.6; background:#f5f5f5; }
-
-    /* Header Slideshow */
-    .header {
-        height:400px;
-        position:relative;
-        overflow:hidden;
-        display:flex;
-        align-items:center;
-        justify-content:center;
-        color:white;
-        text-shadow:2px 2px 4px rgba(0,0,0,0.7);
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Katalog Wisata</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f9f9f9;
     }
-
-    .slide {
-        position:absolute;
-        width:100%;
-        height:100%;
-        background-size:cover;
-        background-position:center;
-        opacity:0;
-        transition:opacity 1s ease-in-out;
+    header {
+      background: #4CAF50;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      font-size: 1.5rem;
     }
-
-    .slide.active { opacity:1; }
-
-    .header h1 {
-        position:relative;
-        z-index:2;
-        font-size:3rem;
-        text-align:center;
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 10px;
     }
-
-    /* Paket Tour */
-    .paket-container { display:flex; flex-wrap:wrap; justify-content:center; gap:20px; padding:40px 20px; background:#fff; }
-    .paket { background:#fafafa; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.1); width:300px; overflow:hidden; transition:transform 0.3s; cursor:pointer; }
-    .paket img { width:100%; height:200px; object-fit:cover; }
-    .paket h3 { padding:15px; font-size:1.5rem; }
-    .paket p { padding:0 15px 15px 15px; }
-    .paket:hover { transform:scale(1.05); }
-
-    /* Footer / Lokasi */
-    .map-container { margin-top:50px; text-align:center; padding:40px 20px; background:#333; color:#fff; }
-    .map-container h2 { margin-bottom:20px; }
-    .map-container iframe { width:100%; max-width:800px; height:450px; border:0; }
-
-    /* Tombol WA */
-    .wa-button { display:inline-block; margin-top:20px; padding:12px 25px; background:#25D366; color:white; font-weight:bold; border-radius:8px; text-decoration:none; transition:0.3s; }
-    .wa-button:hover { background:#128C7E; }
-
-    /* Responsif */
-    @media(max-width:768px){ .paket-container{ flex-direction:column; align-items:center; } }
-</style>
+    .card {
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      margin-bottom: 15px;
+      padding: 15px;
+    }
+    .card h2 {
+      margin: 0 0 5px;
+      color: #333;
+    }
+    .harga {
+      font-weight: bold;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+    .card p {
+      margin: 5px 0;
+    }
+    .form-container {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    form {
+      display: grid;
+      gap: 10px;
+    }
+    label {
+      font-weight: bold;
+    }
+    input, select, textarea {
+      padding: 8px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 100%;
+    }
+    button {
+      background: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px;
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      font-size: 1rem;
+    }
+    button:hover {
+      background: #45a049;
+    }
+  </style>
 </head>
 <body>
 
-<!-- Header Slideshow -->
-<div class="header">
-    <div class="slide active" style="background-image:url('https://images.unsplash.com/photo-1616357456995-7f2c2f0a91d3?auto=format&fit=crop&w=1350&q=80');"></div>
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1603464563937-2ec609df9db4?auto=format&fit=crop&w=1350&q=80');"></div>
-    <div class="slide" style="background-image:url('https://images.unsplash.com/photo-1588666309993-48b9d2dc1681?auto=format&fit=crop&w=1350&q=80');"></div>
-    <h1>Welcome to LavaTour Merapi</h1>
-</div>
+<header>Katalog Wisata Merapi</header>
 
-<!-- Paket Tour -->
-<section class="paket-container">
-    <div class="paket" data-paket="Short Tour" data-harga="400K">
-        <img src="https://images.unsplash.com/photo-1603464563937-2ec609df9db4?auto=format&fit=crop&w=800&q=80" alt="Short Tour">
-        <h3>Short Tour - 400K</h3>
-        <p>Rute: Museum Mini Sisa Hartaku, Batu Alien, Trek Air.</p>
-    </div>
-    <div class="paket" data-paket="Medium Tour" data-harga="500K">
-        <img src="https://images.unsplash.com/photo-1588666309993-48b9d2dc1681?auto=format&fit=crop&w=800&q=80" alt="Medium Tour">
-        <h3>Medium Tour - 500K</h3>
-        <p>Rute: Bunker Kaliadem, Batu Alien, Museum Mini Sisa Hartaku, Trek Air.</p>
-    </div>
-    <div class="paket" data-paket="Long Tour" data-harga="600K">
-        <img src="https://images.unsplash.com/photo-1594633310907-fb1d7f739efc?auto=format&fit=crop&w=800&q=80" alt="Long Tour">
-        <h3>Long Tour - 600K</h3>
-        <p>Rute: Petilasan Mbah Marijan, Bunker Kaliadem, Batu Alien, Museum Mini Sisa Hartaku.</p>
-    </div>
-</section>
+<div class="container">
+  <div class="card">
+    <h2>Paket Short Trip</h2>
+    <div class="harga">Rp 300.000</div>
+    <p><b>Fasilitas:</b> Jip, Helm, Driver</p>
+    <p><b>Rute:</b> Museum Mini, Bunker Kaliadem</p>
+  </div>
 
-<!-- Footer / Lokasi -->
-<div class="map-container">
-    <h2>Lokasi LavaTour Merapi</h2>
-    <iframe src="https://www.google.com/maps?q=adqDjUUNXxfhaSDf7&output=embed" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    <br>
-    <a class="wa-button" href="https://wa.me/6281327525324" target="_blank">Booking via WhatsApp</a>
+  <div class="card">
+    <h2>Paket Medium Trip</h2>
+    <div class="harga">Rp 400.000</div>
+    <p><b>Fasilitas:</b> Jip, Helm, Driver, Air Mineral</p>
+    <p><b>Rute:</b> Museum Mini, Batu Alien, Bunker Kaliadem</p>
+  </div>
+
+  <div class="card">
+    <h2>Paket Sunrise Trip</h2>
+    <div class="harga">Rp 450.000</div>
+    <p><b>Fasilitas:</b> Jip, Helm, Driver, Air Mineral</p>
+    <p><b>Rute:</b> Sunrise Point, Museum Mini, Bunker Kaliadem</p>
+  </div>
+
+  <div class="card">
+    <h2>Paket Long Trip</h2>
+    <div class="harga">Rp 500.000</div>
+    <p><b>Fasilitas:</b> Jip, Helm, Driver, Air Mineral</p>
+    <p><b>Rute:</b> Semua Rute Lengkap</p>
+  </div>
+
+  <div class="form-container">
+    <h2>Form Booking</h2>
+    <form id="bookingForm">
+      <label>Nama Pemesan</label>
+      <input type="text" id="nama" placeholder="Nama lengkap" required>
+
+      <label>Jumlah Orang</label>
+      <input type="number" id="jumlah" placeholder="Masukkan jumlah orang" min="1" required>
+
+      <label>Paket</label>
+      <select id="paket" required>
+        <option value="">--Pilih Paket--</option>
+        <option>Short Trip</option>
+        <option>Medium Trip</option>
+        <option>Sunrise Trip</option>
+        <option>Long Trip</option>
+      </select>
+
+      <label>Pembayaran</label>
+      <select id="pembayaran" required>
+        <option value="">--Pilih Metode--</option>
+        <option>Transfer Bank</option>
+        <option>QRIS</option>
+        <option>Bayar di Tempat</option>
+      </select>
+
+      <label>Keterangan</label>
+      <textarea id="keterangan" placeholder="Tulis catatan tambahan..."></textarea>
+
+      <label>Status Bayar</label>
+      <select id="status">
+        <option>Belum Bayar</option>
+        <option>Sudah Bayar</option>
+      </select>
+
+      <button type="button" onclick="kirimWA()">Kirim Booking via WhatsApp</button>
+    </form>
+  </div>
 </div>
 
 <script>
-    // Slideshow header
-    let slides = document.querySelectorAll('.slide');
-    let current = 0;
-    setInterval(() => {
-        slides[current].classList.remove('active');
-        current = (current+1)%slides.length;
-        slides[current].classList.add('active');
-    }, 4000); // ganti tiap 4 detik
+  function kirimWA() {
+    let nama = document.getElementById("nama").value;
+    let jumlah = document.getElementById("jumlah").value;
+    let paket = document.getElementById("paket").value;
+    let pembayaran = document.getElementById("pembayaran").value;
+    let keterangan = document.getElementById("keterangan").value;
+    let status = document.getElementById("status").value;
 
-    // Paket klik WA
-    const nomorWA = "6281327525324";
-    const paketEls = document.querySelectorAll('.paket');
-    paketEls.forEach(paket => {
-        paket.addEventListener('click', () => {
-            const nama = paket.getAttribute('data-paket');
-            const harga = paket.getAttribute('data-harga');
-            const pesan = `Halo, saya ingin booking ${nama} dengan harga ${harga}`;
-            const linkWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
-            window.open(linkWA, '_blank');
-        });
-    });
+    if (!nama || !jumlah || !paket || !pembayaran) {
+      alert("Harap lengkapi semua data!");
+      return;
+    }
+
+    let pesan = `Halo, saya ingin booking:\n\n` +
+                `Nama: ${nama}\n` +
+                `Jumlah Orang: ${jumlah}\n` +
+                `Paket: ${paket}\n` +
+                `Pembayaran: ${pembayaran}\n` +
+                `Keterangan: ${keterangan}\n` +
+                `Status Bayar: ${status}`;
+
+    let nomorWA = "6281327525324"; // Ganti nomor WA sesuai kebutuhan
+    let url = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+
+    alert("✅ Data berhasil dibuat! WhatsApp akan terbuka.");
+    window.open(url, "_blank");
+  }
 </script>
 
 </body>
 </html>
-
