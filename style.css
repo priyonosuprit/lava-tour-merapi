@@ -45,12 +45,14 @@ h2 {
   border-radius: 16px;
   padding: 1rem;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease;
 }
 
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+.card.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .price {
@@ -67,6 +69,14 @@ form {
   padding: 1rem;
   border-radius: 16px;
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.7s ease;
+}
+
+form.show {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 input, select, textarea {
